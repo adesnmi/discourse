@@ -424,6 +424,13 @@ class SessionController < ApplicationController
     render layout: 'no_ember', locals: { hide_auth_buttons: true }
   end
 
+  def confirm_2fa_get
+  end
+
+  def confirm_2fa_post
+    raise Discourse::NotFound if !current_user
+  end
+
   def forgot_password
     params.require(:login)
 
